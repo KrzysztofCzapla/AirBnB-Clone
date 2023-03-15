@@ -10,9 +10,6 @@ You can:
  - search for housing offerts
  - Get API of offerts
 
- 
- Main Page
+
 ![alt text](https://github.com/KrzysztofCzapla/AirBnB-Clone/blob/main/1.png)
 
-Profile Page
-![alt text](https://github.com/KrzysztofCzapla/AirBnB-Clone/blob/main/2.png)
