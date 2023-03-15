@@ -1,0 +1,96 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="container mt-2">
+		<form class="row justify-content-around">
+		  <div class="col-md-6">
+		    <label for="inputEmail4" class="form-label">Search</label>
+		    <input type="text" class="form-control city" name="searched" id="inputEmail4">
+		  </div>
+		  <div class="col-md-6">
+		    <label for="inputPassword4" class="form-label">City</label>
+		    <input type="text" class="form-control city" name="city" id="inputPassword4">
+		  </div>
+		  <div class="col-md-6 row">
+			  <div class="col">
+			    <label for="inputEmail4" class="form-label">Minimum m²</label>
+			    <input type="number" class="form-control city " name="minM" id="inputEmail4">
+			  </div>
+			  <div class="col">
+			    <label for="inputPassword4" class="form-label">Maximum m²</label>
+			    <input type="number" class="form-control city " name="maxM"  id="inputPassword4">
+			  </div>
+		  </div>
+
+		  <div class="col-md-6 ">
+		  	<div class="row ">
+				  <div class="col">
+				    <label for="inputEmail4" class="form-label">Minimum $</label>
+				    <input type="number" class="form-control city " name="min$"  id="inputEmail4">
+				  </div>
+				  <div class="col">
+				    <label for="inputPassword4" class="form-label">Maximum $</label>
+				    <input type="number" class="form-control city " name="max$" id="inputPassword4">
+				  </div>
+			  </div>
+		  </div>
+		 
+		  <div class="col text-center m-3">
+		    <label for="inputState" class="form-label">Type of Property</label>
+		    <select id="inputState" class="form-select" name="property">
+		    	<option value="None">None</option>
+		        <option value="Apartment">Apartment</option>
+			    <option value="House">House</option>
+		    </select>
+		  </div>
+		  <div class="col text-center m-3">
+		    <button type="submit" class="btn btn-primary">Search</button>
+		  </div>
+		  <div class="col text-center m-3">
+		    <label for="inputState" class="form-label">Type of Offert</label>
+		    <select id="inputState" class="form-select" name="offert">
+		    	<option value="None">None</option>
+		        <option value="Rent">Rent</option>
+			    <option value="Buy">Buy</option>
+		    </select>
+		  </div>
+		 	
+		  
+		</form>
+</div>
+
+<div class="container mt-2">
+
+	<div class="row justify-content-between">
+		{% for post in posts %}
+			<a class="text-decoration-none card-text text-reset  m-1 postImage" href="/post/{{post.id}}">
+				{% for image in images %}
+
+	    			{% if image.post == post %}
+	    				
+	    				<div class="">
+		        			<img src="{{ image.image.url }}" class="img-responsive  postimage img-fluid rounded" />
+		        		</div>
+		        	{%endif%}
+				{%endfor%}
+		    	<div class="col- item m-1">
+		        	<div class="p-2 card item-card card-block">
+		        		<div class="row">
+					        <h5 class="item-card-title mb-1 col">{{post.title}}</h5>
+					        
+				        </div>
+				        <div class="row ">
+					        <p class="card-text mb-0 col">{{post.city}}</p>
+					        <p class="card-text mb-0 col text-right">{{post.meters}} m²</p>
+				        </div>
+				        <h6 class="item-card-title ">{{post.price}} USD</h6>
+		    		</div>
+		    	</div>
+	    	</a>
+      	{%endfor%}
+	</div>
+  
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+<div class="glass  w-50  mx-auto formreg" >
+	<form method="post" class="login px-auto container px-auto text-center  " style="padding: 30;">
+		<h1>Login</h1>
+		{% csrf_token %}
+		{{form|crispy}} <br>
+		<button type="submit" class="button-2" style="margin: 10;">Login</button>
+		<p style="" >Dont have account?</p>
+		<a class="button-2" style="margin: 20;" href="/register">Register</a>
+
+	</form>
+</div>
+{% endblock %}

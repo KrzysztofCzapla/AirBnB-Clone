@@ -1,0 +1,26 @@
+a {
+    text-decoration: none !important;
+    color: gray;
+}
+
+.white {
+    color: white;
+}
+
+.help-block {
+    font-size: 500!important;
+}
+
+.postImage {
+    width: 30%!important;
+}
+
+.postimg {
+    width: 60%;
+}
+
+input[name="Description"] {
+    height: 200px;
+    word-break: break-word;
+}
+

@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="text-center p-2">
+        <h1>Rent or Sell your Property</h1>
+        <form method = "post" enctype="multipart/form-data" class="" >
+            {% csrf_token %}
+            {{ value|linebreaks }}
+            {{ form|crispy }}
+            {{ imageForm|crispy }}
+            
+            <button class="m-2" type="submit">Upload</button>
+
+        </form>
+    </div>
+</body>
+{% endblock %}

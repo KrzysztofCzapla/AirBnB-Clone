@@ -1,0 +1,58 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row justify-content-between">
+		<div class=" col justify-content-start">
+			<div class="row">
+				<h2 class=" col-sm-auto ">{{post.title}}, {{post.meters}}m²</h2>
+
+				{%if user.is_authenticated %}
+					 {% if user == post.author.user %}
+			        <a class="col-sm-auto" href="/editpost/{{ post.id }}"><button type="button" class="btn btn-outline-primary me-2">Edit</button></a>
+			        <a class="col-sm-auto" href="/deletepost/{{ post.id }}"><button type="button" class="btn btn-outline-danger me-2 text-danger" aria-label="Close">Delete</button></a> 
+			        {%endif%}	 	
+				{%endif%}
+			</div>
+			<h7>{{post.date}},</h7>
+			<img src="{{ image.image.url }}" class="img-responsive postimg m-0 row   img-fluid rounded" />
+		</div>
+
+		<div class=" col-sm-auto">
+			<a class="text-decoration-none card-text text-reset" href="/profile/{{post.author.user.id}}">
+		    	<div class="col- item m-1">
+		    		
+		        	<div class="p-2 card item-card card-block">
+
+				        <div class="row justify-content-start">
+							<h1 class=" col-sm-auto">{{post.author.name}}</h1>
+							
+						</div>
+						<p>{{post.author.bio}}</p>
+						<h3>Phone: {{post.author.phoneNumber}}</h3>
+						<h3>e-mail: {{post.author.eMail}}</h3>
+			    	</div>
+		    	</div>
+    		</a>
+		</div>
+
+	</div>
+	
+	<h5>{{post.city}},</h5>
+	<h5>{{post.PropertyType}} to {{post.OffertType}},</h5>
+	<h5>${{post.price}}</h5>
+	
+	<p class="text-break">{{post.Description|linebreaks}}</p>
+	
+	<div>
+		
+
+
+
+
+		
+	</div>
+</div>
+
+{% endblock %}
